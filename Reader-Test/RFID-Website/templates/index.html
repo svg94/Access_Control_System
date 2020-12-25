@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Password Manager</title>
+		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+		<link rel="stylesheet" href="./../static/css/style.css">
+	</head>
+	<body>
+		<h1>So you want to retrieve your passwords?</h1>
+		<p>To do that, you need to authenticate with your Chipcard. Press on the button below and hold your chipcard on the reader.</p>
+		<button onclick="goToAuth()">Authenticate</button>
+	</body>
+</html>
