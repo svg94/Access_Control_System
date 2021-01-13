@@ -31,8 +31,7 @@ class Zugang:
 	def authorized(self):
 		self.mfReader
 		self.reading = True
-		while self.reading:
-			time.sleep(1)											#Um Brute-Force and co zu verlangsamen und nicht moeglich zu machen.
+		while self.reading:											#Um Brute-Force and co zu verlangsamen und nicht moeglich zu machen.
 			(status, tagtype) = self.mfReader.MFRC522_Request(self.mfReader.PICC_REQIDL)
 			if status == self.mfReader.MI_OK:						#Karte finden
 				(status, uid) = self.mfReader.MFRC522_Anticoll()	#AntiCollision getting id

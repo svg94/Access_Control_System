@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password-Manager</title>
+	<link rel="stylesheet" href="./../static/css/style.css">
+	<style>
+		.accountData{
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+		}
+		table, th, td {
+			border: 1px solid black;
+		}
+		.header{
+			font-size: 16px;
+		}
+		.gridContainer{
+			display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+		}
+		.gridContainer2{
+			display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+		}
+
+		.left{
+			text-align: end;
+            justify-self: auto;
+		}
+		.right{
+			text-align: start;
+            justify-self: auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Password-Table</h1>
+	<div>
+        <table class="accountData">
+            <tr>
+                <th>Account</th>
+                <th>Password</th>
+            </tr>
+            {% for entry in  dbcontent%}
+            <tr>
+                <td>{{ entry["name"] }}</td>
+                <td>{{ entry["pw"] }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+	<br>
+    <div id="ControlsCtr">
+        <h1 class="header">Add Account</h1>
+		<form action="http://raspberrypi/auth/accounts" method="POST">
+        	<div class="gridContainer">
+				<div class ="left"><label for="name">Platform name: </label></div>
+	            <div class="right"><input name="name" id="name" placeholder="e.g. LEA"></div>
+        	
+            	<div class ="left"><label for="pw">Password: </label></div>
+            	<div class="right"><input name="pw" id="pw" placeholder="e.g. 12345"></div>
+				
+				<div class = "left"></div>
+				<div class="right"><button>Submit</button></div>
+        	</div>
+    	</form>
+        <h1 class="header">Remove Account</h1>
+		<form action="http://raspberrypi/auth/accountsDEL" method="POST">
+        	<div class="gridContainer2">
+            	<div class ="left"><label for="name">Platform name: </label></div>
+            	<div class ="right"><input name="name" id="name" placeholder="e.g. LEA"></div>
+
+				<div class = "left"></div>
+				<div class="right"><button>Submit</button></div>
+
+        	</div>
+    	</form>
+    </div>
+	<br>
+	<div>
+		<a href="/settings">Settings</a>
+	</div>
+</body>
+</html>

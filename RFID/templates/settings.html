@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password-Manager</title>
+	<link rel="stylesheet" href="./../static/css/style.css">
+	<style>
+		.header{
+			font-size: 16px;
+		}
+		.gridContainer{
+			display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+
+		}
+		.left{
+			text-align: end;
+            justify-self: auto;
+
+		}
+		.right{
+			text-align: start;
+            justify-self: auto;
+
+		}
+	</style>
+</head>
+<body>
+	<h1>Settings</h1>
+	<p>
+		Welcome. On This page you can change the values on your chipcard. For that you need the current authorization credentials.
+	</p>
+    <div id="ControlsCtr">
+		<h1 class="header">Change Key</h1>
+		<form action="http://raspberrypi/cardKey" method="POST">
+        	<div class="gridContainer">
+            	<div class="left"><label for="key">New Key: </label></div>
+            	<div class="right"><input name="key" id="key" placeholder="16 1byte integers"></div>
+				<div class = "left"></div>
+				<div class="right"><button>Submit</button></div>
+
+        	</div>
+    	</form>
+
+		<h1 class="header">Change Password</h1>
+		<form action="http://raspberrypi/cardPW" method="POST">
+        	<div class="gridContainer">
+            	<div class="left"><label for="password">New Password: </label></div>
+            	<div class="right"><input name="password" id="password" placeholder="16 1byte integers"></div>
+				<div class = "left"></div>
+				<div class="right"><button>Submit</button></div>
+        	</div>
+    	</form>
+
+    </div>
+	<br>
+	<div>
+		<a href="/auth">Go back to Password View</a>
+	</div>
+	<p>{{rdy}}</p>
+</body>
+</html>
